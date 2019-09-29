@@ -1,2 +1,2 @@
 # backend-dust
-An api for DustShop that integrate a Minecraft Plugin with PHP Site purchases, and approves these in a real time almost without delays..
+A DustShop API that integrates a Minecraft Plugin into PHP site purchases and approves them in real time with almost no delays.
