@@ -46,7 +46,7 @@ socket.run();
 /*
 */
 
-server.listen(3333, console.log(`\n↳ \x1b[46m\x1b[30m backend - server \x1b[0m Listening on port: \x1b[4m3333\x1b[0m`));
+server.listen(process.env.PORT ||3333, console.log(`\n↳ \x1b[46m\x1b[30m backend - server \x1b[0m Listening on port: \x1b[4m3333\x1b[0m`));
 
 
 
