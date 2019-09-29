@@ -6,10 +6,10 @@ const send = (req) => {
 }
 const run = () => {
    console.log(`\n↳ \x1b[43m\x1b[30m backend - socket.io \x1b[0m Successful connection to socket.io.`);
-   io.on('connection', (socket) => {
+   io.on('connection', socket => {
     console.log(`\n\x1b[32m⇅ \x1b[43m\x1b[30m backend - socket.io \x1b[0m A new connection has been opened, id: \x1b[1m${socket.id}\x1b[0m`); 
     console.log(`   \x1b[32m⟲  \x1b[0mLooking for inactive items...\x1b[0m`);
-    socket.on('return-purge', (r) =>  purge(r));
+    socket.on('return-purge', r =>  purge(r));
     socket.on('disconnect',  () => {
       console.log(`\n\x1b[31m✖ \x1b[43m\x1b[30m backend - socket.io \x1b[0m The connection with id \x1b[1m${socket.id}\x1b[0m has been closed.`);
     });
