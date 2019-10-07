@@ -22,7 +22,7 @@ module.exports = {
 
     const product = await Product.create(req.body);
     
-    return res.json({status: "Success, new item has been created", product});
+    return res.json({status: "Success, new item has been created", ...product});
   },
   async show(req, res) {
     const { token } = req.query; 
