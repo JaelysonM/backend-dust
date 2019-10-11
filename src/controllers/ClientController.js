@@ -13,7 +13,7 @@ module.exports = {
 
     const product = await Product.find();
     
-    return res.status(302).json(JSON.parse(product));
+    return res.status(200).send(JSON.parse(product));
   }, 
   async store(req, res) {
     const { token } = req.query; 
