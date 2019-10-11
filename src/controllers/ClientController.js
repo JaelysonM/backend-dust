@@ -22,7 +22,7 @@ module.exports = {
 
     const product = await Product.create(req.body);
     
-    return res.status(201).json({status: "Success, new item has been created", ...product});
+    return res.status(200).json({status: "Success, new item has been created",body: product});
   },
   async show(req, res) {
     const { token } = req.headers; 
@@ -42,7 +42,7 @@ module.exports = {
 
     if (product!=null)  send(product);
 
-    return res.status(product == null ?404:200 ).json(product == null?{status: "Error: 404"}:{status: "Success, updated and purged by socket.io"});
+    return res.status(product == null ?404:200 ).json(product == null?{status: "Error: 404"}:{status: "Success, updated and purged by socket.io",body: product });
   },
   async destroy(req, res) {
     const { token } = req.headers; 
