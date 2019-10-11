@@ -6,10 +6,6 @@ const ProductSchema = new mongoose.Schema( {
     type: String,
     require: true
    },
-   uuid: {
-     type: String,
-     required: true,
-   }
  },
  client: {
    name: {
