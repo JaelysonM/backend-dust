@@ -10,9 +10,14 @@ const run = () => {
 
     
     var ip = socket.handshake.headers['x-forwarded-for'] || req.connection.remoteAddress;
-    console.log(ip);
-    console.log(`\n\x1b[32m⇅ \x1b[43m\x1b[30m backend - socket.io \x1b[0m A new connection has been opened, id: \x1b[1m${socket.id}\x1b[0m`); 
-    console.log(`   \x1b[32m⟲  \x1b[0mLooking for inactive items...\x1b[0m`);
+    if (ip != "181.222.158.213") {
+      console.log(`\n\x1b[32m⇅ \x1b[43m\x1b[30m backend - socket.io \x1b[0m A new connection has been opened, id: \x1b[1m${socket.id}\x1b[0m`); 
+      console.log(`   \x1b[32m⟲  \x1b[0mLooking for inactive items...\x1b[0m`);
+    }else {
+      console.log(`\n\x1b[31m✖ \x1b[43m\x1b[30m backend - socket.io \x1b[0m A new connection has been force closed because these IP there is not in whitelist, id: \x1b[1m${socket.id}\x1b[0m`); 
+      socket.emit('forceDisconnect');
+    }
+    
     socket.on('return-purge', r =>  purge(r));
 
     socket.on('disconnect',  () => {
