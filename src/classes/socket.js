@@ -7,7 +7,10 @@ const send = (req) => {
 const run = () => {
    console.log(`\n↳ \x1b[43m\x1b[30m backend - socket.io \x1b[0m Successful connection to socket.io.`);
    io.on('connection', socket => {
-    console.log(socket);
+
+    
+    var ip = socket.handshake.headers['x-forwarded-for'] || req.connection.remoteAddress;
+    console.log(ip);
     console.log(`\n\x1b[32m⇅ \x1b[43m\x1b[30m backend - socket.io \x1b[0m A new connection has been opened, id: \x1b[1m${socket.id}\x1b[0m`); 
     console.log(`   \x1b[32m⟲  \x1b[0mLooking for inactive items...\x1b[0m`);
     socket.on('return-purge', r =>  purge(r));
