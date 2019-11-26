@@ -5,7 +5,7 @@ const queryPurge= [];
 var array = [];
 
 const send = (req) => {
- // io.emit("send",req);
+  io.emit("send",req);
   console.log(`\n\x1b[35m⇉ \x1b[43m\x1b[30m backend - socket.io \x1b[0m Sending a message to all clients [To active item].`);
 }
 const run = () => {
