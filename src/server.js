@@ -41,8 +41,8 @@ module.exports= {
  Run app
 */
 app.use('/api', require('./routes'));
-const {socket} =requireDir("classes");
-socket.run();
+const {Controller} =requireDir("sockets");
+Controller.run();
 /*
 */
 
